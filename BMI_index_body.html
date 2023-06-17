@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>BMI Calculator</title>
+    <style>
+        /* CSS styles go here */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #eaf2f8;
+            margin: 0;
+            padding: 20px;
+            background-color: #eaf2f8; /* Updated background color */
+        }
+        
+        .container {
+            max-width: 400px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        
+        .input-group {
+            margin-bottom: 10px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: #555;
+        }
+        
+        input[type="number"] {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        
+        .button-container {
+            text-align: center;
+        }
+        
+        .calculate-button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+        
+        .calculate-button:hover {
+            background-color: #45a049;
+        }
+	
+	
+	.calculate-button:active {
+    		transform: scale(1.1);
+	}
+        
+        .result {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #f7f7f7;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+    </style>
+    <script>
+        function calculateBMI() {
+            var weight = document.getElementById("weight").value;
+            var heightFeet = document.getElementById("heightFeet").value;
+            var heightCm = document.getElementById("heightCm").value;
+            var heightInCm = heightFeet * 30.48 + heightCm;
+            
+            if (weight > 0 && heightInCm > 0) {
+                var bmi = weight / ((heightInCm/100) ** 2);
+                var result = document.getElementById("result");
+                result.innerHTML = "Your BMI is: " + bmi.toFixed(2);
+            } else {
+                alert("Please enter valid weight and height values.");
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>BMI Calculator</h1>
+    <div class="container">
+        <div class="input-group">
+            <label for="weight">Weight (kg):</label>
+            <input type="number" id="weight" min="1" required>
+        </div>
+        <div class="input-group">
+            <label for="heightFeet">Height (feet):</label>
+            <input type="number" id="heightFeet" min="1">
+        </div>
+        <div class="input-group">
+            <label for="heightCm">Height (cm):</label>
+            <input type="number" id="heightCm" min="1">
+        </div>
+        <div class="button-container">
+            <button class="calculate-button" onclick="calculateBMI()">Calculate</button>
+        </div>
+        <div class="result" id="result"></div>
+    </div>
+</body>
+</html>
