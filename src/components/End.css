@@ -1,0 +1,22 @@
+.end-page {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f4f4f4;
+  }
+  
+  .end-page h1 {
+    margin-bottom: 20px;
+  }
+  
+  .end-page p {
+    margin-bottom: 10px;
+  }
+  
+  .end-page .message {
+    font-weight: bold;
+    font-size: 18px;
+  }
+  
